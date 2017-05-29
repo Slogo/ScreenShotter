@@ -26,7 +26,7 @@ THE SOFTWARE.
 SCREENSHOTTER_FOLDER_NAME = SCREENSHOTTER_FOLDER_NAME or "Screenshots"
 
 --image formate to use
-SCREENSHOTTER_IMAGE_FORMAT = SCREENSHOTTER_IMAGE_FORMAT or ".png"
+SCREENSHOTTER_IMAGE_FORMAT = SCREENSHOTTER_IMAGE_FORMAT or "png"
 
 --rate of recording. This is the # of FPS the resulting images will be of
 SCREENSHOTTER_RECORD_RATE = SCREENSHOTTER_RECORD_RATE or 1/15
@@ -80,10 +80,10 @@ local function getShotData()
   
   if isRecording == true then
     love.filesystem.createDirectory(shotterFolder .. recordName)
-    frameName = shotterFolder .. recordName .. "/" .. os.time() .. "_" .. recordIndex .. SCREENSHOTTER_IMAGE_FORMAT
+    frameName = shotterFolder .. recordName .. "/" .. os.time() .. "_" .. recordIndex .. "." .. SCREENSHOTTER_IMAGE_FORMAT
   else
     love.filesystem.createDirectory(SCREENSHOTTER_FOLDER_NAME)
-    frameName = shotterFolder .. os.time() .. "_" .. recordIndex .. SCREENSHOTTER_IMAGE_FORMAT
+    frameName = shotterFolder .. os.time() .. "_" .. recordIndex .. "." .. SCREENSHOTTER_IMAGE_FORMAT
   end
   
   --Index ensures uniqueness of screenshots taken
@@ -115,7 +115,7 @@ local function writeFrame()
   local shotData = table.remove(capturedFrames, 1)
   local file = love.filesystem.newFile(shotData.name)
   if file:open("w") == true then
-    shotData.data:encode(shotData.name)
+    shotData.data:encode(SCREENSHOTTER_IMAGE_FORMAT, shotData.name)
   end
   file:close()
 end
