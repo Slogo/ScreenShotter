@@ -57,6 +57,6 @@ Configuration
 =============
 There are several configuration options that can be used with Screen Shotter:
 * SCREENSHOTTER_FOLDER_NAME: The name of the folder in the Love filesystem to store the screenshots (default screenshots)
-* SCREENSHOTTER_IMAGE_FORMAT: The format of the images to save. See: http://love2d.org/wiki/ImageFormat (default .png)
+* SCREENSHOTTER_IMAGE_FORMAT: The format of the images to save. See: http://love2d.org/wiki/ImageFormat (default png)
 * SCREENSHOTTER_RECORD_RATE: The framerate to record set in 1/FPS (default 1/15 for 15FPS)
 * SCREENSHOTTER_WRITE_RATE: The rate at which screenshots are written to the file system. The larger this value the less of a performance hit Screenshotter has, but the more memory it uses and the longer it takes to write out the images (default 1/5 seconds between image writes)
